@@ -13,7 +13,7 @@ const UpdateMarks = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`https://crud-api-gamma-three.vercel.app/${id}`)
+        axios.get(`https://crud-mern-api-beta.vercel.app/${id}`)
             .then(result => {
                 console.log(result);
                 setName(result.data.name);
