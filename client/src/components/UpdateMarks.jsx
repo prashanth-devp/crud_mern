@@ -13,7 +13,7 @@ const UpdateMarks = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:3001/getUser/${id}`)
+        axios.get(`https://crud-api-gamma-three.vercel.app/${id}`)
             .then(result => {
                 console.log(result);
                 setName(result.data.name);
@@ -27,7 +27,7 @@ const UpdateMarks = () => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        axios.put(`http://127.0.0.1:3001/updateUser/${id}`, { name, english, science, maths, social })
+        axios.put(`https://crud-api-gamma-three.vercel.app/updateUser/${id}`, { name, english, science, maths, social })
             .then(result => {
                 console.log(result);
                 navigate("/");
