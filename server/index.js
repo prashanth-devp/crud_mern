@@ -6,7 +6,13 @@ const UserModel = require('./models/User');
 require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://crud_mern-1whq.vercel.app"],
+        methods: ["GET", "PUT", "POST", "DELETE"],
+        credentials: true
+    }
+));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
