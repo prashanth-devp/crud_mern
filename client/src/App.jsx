@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
-import CreateMarks from './components/createMarks';
+import CreateMarks from './components/CreateMarks';
 import UpdateMarks from './components/UpdateMarks';
 import DisplayMarks from './components/DisplayMarks';
 import Home from './components/Home';
