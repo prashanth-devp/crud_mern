@@ -8,7 +8,7 @@ require('dotenv').config(); // Load environment variables from .env file
 const app = express();
 app.use(cors(
     {
-        origin: ["https://crud_mern-1whq.vercel.app"],
+        origin: ["https://crud-mern-frontend-zeta.vercel.app"],
         methods: ["GET", "PUT", "POST", "DELETE"],
         credentials: true
     }
