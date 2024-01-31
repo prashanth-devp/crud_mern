@@ -13,7 +13,7 @@ const UpdateMarks = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`https://crud-api-gamma-three.vercel.app/${id}`)
+        axios.get(`https://crud-mern-api-seven.vercel.app/${id}`)
             .then(result => {
                 console.log(result);
                 setName(result.data.name);
@@ -27,7 +27,7 @@ const UpdateMarks = () => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        axios.put(`https://crud-api-gamma-three.vercel.app/${id}`, { name, english, science, maths, social })
+        axios.put(`https://crud-mern-api-seven.vercel.app/${id}`, { name, english, science, maths, social })
             .then(result => {
                 console.log(result);
                 navigate("/");
