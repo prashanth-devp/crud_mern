@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const UserModel = require('./models/User');
 
-require('dotenv').config(); // Load environment variables from .env file
+// require('dotenv').config();
+// Load environment variables from .env file
 
 const app = express();
 app.use(cors(
