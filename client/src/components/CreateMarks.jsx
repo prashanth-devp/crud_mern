@@ -10,10 +10,11 @@ const CreateMarks = () => {
     const [maths, setMaths] = useState(0);
     const [social, setSocial] = useState(0);
     const navigate = useNavigate();
+    axios.defaults.withCredentials = true;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://127.0.0.1:3001/createUser", { name, english, science, maths, social })
+        axios.post("https://crud-api-gamma-three.vercel.app/createUser", { name, english, science, maths, social })
             .then(result => {
                 console.log(result);
                 navigate("/");
