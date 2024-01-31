@@ -14,7 +14,7 @@ const CreateMarks = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("https://crud-mern-api-beta.vercel.app/createUser", { name, english, science, maths, social })
+        axios.post("https://crud-api-gamma-three.vercel.app/createUser", { name, english, science, maths, social })
             .then(result => {
                 console.log(result);
                 navigate("/");
