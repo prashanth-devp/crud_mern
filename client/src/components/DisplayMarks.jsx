@@ -7,7 +7,7 @@ const DisplayMarks = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get("https://crud-mern-api-beta.vercel.app/")
+        axios.get("https://crud-api-gamma-three.vercel.app/")
             .then(result => {
                 // Sort data based on percentage in descending order
                 const sortedData = result.data.sort((a, b) => {
@@ -22,7 +22,7 @@ const DisplayMarks = () => {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete(`https://crud-mern-api-beta.vercel.app/${id}`)
+        axios.delete(`https://crud-api-gamma-three.vercel.app/${id}`)
             .then(res => {
                 console.log(res);
                 // Update state to trigger a re-render without page reload
