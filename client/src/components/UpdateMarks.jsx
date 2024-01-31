@@ -27,7 +27,7 @@ const UpdateMarks = () => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        axios.put(`https://crud-api-gamma-three.vercel.app/updateUser/${id}`, { name, english, science, maths, social })
+        axios.put(`https://crud-mern-api-beta.vercel.app/updateUser/${id}`, { name, english, science, maths, social })
             .then(result => {
                 console.log(result);
                 navigate("/");
