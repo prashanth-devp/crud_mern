@@ -1,53 +1,62 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const UserModel = require('./models/User')
+const UserModel = require('./models/User');
 
-const app = express()
-app.use(cors())
-app.use(express.json())
+require('dotenv').config(); // Load environment variables from .env file
 
-mongoose.connect("mongodb://127.0.0.1:27017/crud")
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-app.get("/", (req,res) => {
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+app.get("/", (req, res) => {
     UserModel.find({})
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
 
-app.get("/getUser/:id", (req,res) => {
+app.get("/getUser/:id", (req, res) => {
     const id = req.params.id;
-    UserModel.findById({_id:id})
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+    UserModel.findById({ _id: id })
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
 
-app.put("/updateUser/:id", (req,res) => {
+app.put("/updateUser/:id", (req, res) => {
     const id = req.params.id;
-    UserModel.findByIdAndUpdate({_id: id}, {
+    UserModel.findByIdAndUpdate({ _id: id }, {
         name: req.body.name,
         english: req.body.english,
         science: req.body.science,
         maths: req.body.maths,
         social: req.body.social
     })
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+        .then(users => res.json(users))
+        .catch(err => res.json(err));
+});
 
-app.delete("/deleteUser/:id", (req,res) => {
+app.delete("/deleteUser/:id", (req, res) => {
     const id = req.params.id;
-    UserModel.findByIdAndDelete({_id: id})
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-})
+    UserModel.findByIdAndDelete({ _id: id })
+        .then(result => {
+            console.log(result);
+            res.json({ message: 'User deleted successfully' });
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        });
+});
 
-app.post("/createUser", (req,res) => {
+app.post("/createUser", (req, res) => {
     UserModel.create(req.body)
-    .then(user => res.json(user))
-    .catch(err => res.json(err))
-})
+        .then(user => res.json(user))
+        .catch(err => res.json(err));
+});
 
-app.listen(3001, () => {
-    console.log("Server is running on 3001")
-})
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
