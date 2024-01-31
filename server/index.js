@@ -16,7 +16,7 @@ app.use(cors(
 ));
 app.use(express.json());
 
-mongoose.connect(mongodb+srv://ptc:ptc123@cluster0.ixm6hmy.mongodb.net/?retryWrites=true&w=majority);
+mongoose.connect('mongodb+srv://ptc:ptc123@cluster0.ixm6hmy.mongodb.net/?retryWrites=true&w=majority');
 
 // { useNewUrlParser: true, useUnifiedTopology: true }
 
